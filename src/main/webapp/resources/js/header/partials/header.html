@@ -1,0 +1,19 @@
+<nav data-ng-controller="HeaderCtrl"
+	class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<ul class="nav navbar-nav">
+				<li><a class="navbar-brand" data-ui-sref="task-list">Team Awesome</a></li>
+				<li data-ui-sref-active="active"><a data-ui-sref="task-list">Tasks</a></li>
+			</ul>
+		</div>
+		<ul data-ng-show="user" class="nav navbar-nav navbar-right">
+			<li class="navbar-text">Signed in as {{ user.name }}</li>
+			<li><a data-ng-click="signOut()">Logout</a></li>
+		</ul>
+		<ul data-ng-hide="user" class="nav navbar-nav navbar-right">
+			<li data-ui-sref-active="active"><a data-ui-sref="signIn">Login</a></li>
+			<li data-ui-sref-active="active"><a data-ui-sref="register">Register</a></li>
+		</ul>
+	</div>
+</nav>

@@ -1,0 +1,12 @@
+<div class="container">
+	<form class="form-signin" novalidate data-ng-submit="submit()">
+		<h2 class="signin-headline headline">Login</h2>
+		<input class="form-control" type="text" name="username" data-ng-model="user.username" placeholder="Username" autofocus required>
+		<input class="form-control" type="text" name="password" data-ng-model="user.password" placeholder="Password" autofocus required>
+		
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">Login</button>
+			<a data-ui-sref="register" class="show-signup">Register</a>
+		</div>
+	</form>
+</div>

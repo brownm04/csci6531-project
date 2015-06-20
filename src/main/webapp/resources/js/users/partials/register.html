@@ -1,0 +1,15 @@
+<div class="container">
+	<form novalidate class="form-signin" data-ng-submit="submit()">
+		<h2 class="signin-headline headline">Register</h2>
+		<input class="form-control" type="text" name="username" data-ng-model="user.username" placeholder="Username" autofocus required>
+		<input class="form-control" type="text" name="name" data-ng-model="user.name" placeholder="Name" required>
+		<input class="form-control" type="text" name="email" data-ng-model="user.email" placeholder="Email" required>
+		<input class="form-control" type="text" name="phone" data-ng-model="user.phone" placeholder="Phone" required>
+		<input class="form-control" type="text" name="password" data-ng-model="user.password" placeholder="Password" required>
+		
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">Register</button>
+			<a data-ui-sref="signIn" class="show-signup">Login</a>
+		</div>
+	</form>
+</div>
