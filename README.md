@@ -1,4 +1,4 @@
-csci6221-project
+csci6531-project
 ================
 
-CSCI 6221 Project
+CSCI 6531 Project
