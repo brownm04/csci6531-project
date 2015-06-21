@@ -13,12 +13,12 @@
 	<mvc:view-controller path="/" view-name="index" />
 	<mvc:annotation-driven />
 	
-	<context:component-scan base-package="edu.gwu.csci6221.teamawesome,
-										edu.gwu.csci6221.teamawesome.controller.rest.impl,
-										edu.gwu.csci6221.teamawesome.controller.rest,
-										edu.gwu.csci6221.teamawesome.model,
-										edu.gwu.csci6221.teamawesome.dao,
-										edu.gwu.csci6221.teamawesome.dao.impl" />
+	<context:component-scan base-package="edu.gwu.csci6531.teamawesome,
+										edu.gwu.csci6531.teamawesome.controller.rest.impl,
+										edu.gwu.csci6531.teamawesome.controller.rest,
+										edu.gwu.csci6531.teamawesome.model,
+										edu.gwu.csci6531.teamawesome.dao,
+										edu.gwu.csci6531.teamawesome.dao.impl" />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />

@@ -30,7 +30,7 @@ public abstract class AbstractDAO<T extends Serializable> implements IDAO<T> {
 	@Transactional
 	public final List<T> findAll() {
 		TypedQuery<T> query = em.createQuery(
-        		"SELECT t FROM User u ORDER BY u.id", clazz);
+        		"SELECT t FROM " + clazz.getSimpleName() + " t ORDER BY t.id", clazz);
         return query.getResultList();
 	}
 
