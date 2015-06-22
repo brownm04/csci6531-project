@@ -13,6 +13,8 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 	@Transactional
 	public User findByUsername(final String username) {
 		return (User) em.createQuery(
-				"from " + clazz.getName() + " where username='" + username + "'").getSingleResult();
+				"from " + clazz.getName() + " where username = :username")
+				.setParameter("username", username)
+				.getSingleResult();
 	}
 }

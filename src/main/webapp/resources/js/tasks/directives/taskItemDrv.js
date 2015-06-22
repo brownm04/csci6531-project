@@ -1,4 +1,4 @@
-angular.module('teamawesome.tasks').directive('taItem', function($http, GlobalSrv) {
+angular.module('teamawesome.tasks').directive('taItem', function($http, $sce, GlobalSrv) {
 	return {
 		restrict: 'A',
 		scope: {
@@ -12,10 +12,12 @@ angular.module('teamawesome.tasks').directive('taItem', function($http, GlobalSr
 					dateViewed: Date.now()
 				});
 			};
+			
+			scope.trustedTask = $sce.trustAsHtml(scope.task.description);
 		},
 		template: '<div class="row">' +
 			'<h5 data-ng-bind="task.category.category"></h5>' +
-			'<div data-ng-bind="task.description" data-ng-click="userView()"></div>' +
+			'<div data-ng-bind-html="trustedTask" data-ng-click="userView()"></div>' +
 			'<div data-ng-bind="task.payment"></div>' +
 		'</div>'
 	};

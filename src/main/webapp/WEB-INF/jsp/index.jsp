@@ -31,6 +31,8 @@
 		src="./resources/lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript"
 		src="./resources/lib/ng-quick-date/ng-quick-date.min.js"></script>
+	<script type="text/javascript"
+		src="./resources/lib/angular-sanitize/sanitize.js"></script>
 
 	<section class="container">
 		<div data-ui-view></div>

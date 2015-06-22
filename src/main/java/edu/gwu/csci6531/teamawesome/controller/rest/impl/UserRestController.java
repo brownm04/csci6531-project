@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,5 +35,13 @@ public class UserRestController extends AbstractRestController<User> {
 
 		res.addCookie(new Cookie("user", "" + newUser.getId()));
 		return newUser;
+	}
+	
+	@RequestMapping(value = "/byUsername", method = RequestMethod.GET)
+	public @ResponseBody
+	User byUsername(HttpServletResponse res, @RequestParam(value = "username", required = true) String username) {
+		User user = userDAO.findByUsername(username);
+		
+		return user;
 	}
 }
