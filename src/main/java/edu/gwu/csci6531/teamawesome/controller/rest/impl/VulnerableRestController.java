@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.gwu.csci6531.teamawesome.controller.rest.AbstractRestController;
+import edu.gwu.csci6531.teamawesome.dao.IDAO;
 import edu.gwu.csci6531.teamawesome.dao.IVulnerableDAO;
-import edu.gwu.csci6531.teamawesome.model.Category;
+import edu.gwu.csci6531.teamawesome.model.User;
 
 @RestController
 @RequestMapping("/rest/vuln")
-public class VulnerableRestController extends AbstractRestController<Category> {
+public class VulnerableRestController extends AbstractRestController<User> {
 	
 	@Autowired
 	private IVulnerableDAO vulnDAO;
@@ -24,5 +25,10 @@ public class VulnerableRestController extends AbstractRestController<Category> {
 	public @ResponseBody
 	Object byUsername(HttpServletResponse res, @RequestParam(value = "username", required = true) String username) {
 		return vulnDAO.findByUsername(username);
+	}
+	
+	@Override
+	protected IDAO<User> getDao() {
+		return vulnDAO;
 	}
 }

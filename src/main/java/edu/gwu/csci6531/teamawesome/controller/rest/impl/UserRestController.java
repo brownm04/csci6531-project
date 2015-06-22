@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.gwu.csci6531.teamawesome.controller.rest.AbstractRestController;
 import edu.gwu.csci6531.teamawesome.controller.rest.exception.NoSuchUserException;
+import edu.gwu.csci6531.teamawesome.dao.IDAO;
 import edu.gwu.csci6531.teamawesome.dao.IUserDAO;
 import edu.gwu.csci6531.teamawesome.model.User;
 
@@ -43,5 +44,11 @@ public class UserRestController extends AbstractRestController<User> {
 		User user = userDAO.findByUsername(username);
 		
 		return user;
+	}
+	
+
+	@Override
+	protected IDAO<User> getDao() {
+		return userDAO;
 	}
 }

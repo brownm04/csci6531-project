@@ -20,6 +20,8 @@
 		data-role="navigation"></header>
 
 	<script type="text/javascript"
+		src="./resources/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
 		src="./resources/lib/angularjs/angular.js"></script>
 	<script type="text/javascript"
 		src="./resources/lib/angular-ui-bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
@@ -27,8 +29,6 @@
 		src="./resources/lib/angular-ui-router/angular-ui-router.min.js"></script>
 	<script type="text/javascript"
 		src="./resources/lib/moment/moment.js"></script>
-	<script type="text/javascript"
-		src="./resources/lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript"
 		src="./resources/lib/ng-quick-date/ng-quick-date.min.js"></script>
 	<script type="text/javascript"
