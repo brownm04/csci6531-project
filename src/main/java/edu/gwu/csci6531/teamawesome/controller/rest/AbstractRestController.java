@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,21 +22,18 @@ public abstract class AbstractRestController<T extends Serializable> implements
 			.getLog((Class<T>) ((ParameterizedType) getClass()
 					.getGenericSuperclass()).getActualTypeArguments()[0]);
 
-	@Autowired
-	protected IDAO<T> dao;
-
 	@Override
 	@RequestMapping(value = AbstractRestURIConstants.FIND_ALL, method = RequestMethod.GET)
 	public @ResponseBody
 	List<T> findAll() {
-		return dao.findAll();
+		return getDao().findAll();
 	}
 
 	@Override
 	@RequestMapping(value = AbstractRestURIConstants.FIND_ONE, method = RequestMethod.GET)
 	public @ResponseBody
 	T findOne(@PathVariable(value = "id") final Long id) {
-		return dao.findOne(id);
+		return getDao().findOne(id);
 	}
 
 	@Override
@@ -45,14 +41,14 @@ public abstract class AbstractRestController<T extends Serializable> implements
 	public @ResponseBody
 	void create(@RequestBody final T entity) {
 		log.info("Creating new entity: " + entity.toString());
-		dao.create(entity);
+		getDao().create(entity);
 	}
 
 	@Override
 	@RequestMapping(value = AbstractRestURIConstants.UPDATE, method = RequestMethod.PUT)
 	public @ResponseBody
 	T update(@RequestBody final T entity) {
-		return dao.update(entity);
+		return getDao().update(entity);
 	}
 
 	@Override
@@ -61,8 +57,10 @@ public abstract class AbstractRestController<T extends Serializable> implements
 	void delete(@RequestBody final T entity,
 			@RequestParam(value = "id", required = false) final Long id) {
 		if (id != null)
-			dao.deleteById(id);
+			getDao().deleteById(id);
 		else
-			dao.delete(entity);
+			getDao().delete(entity);
 	}
+	
+	protected abstract IDAO<T> getDao();
 }
